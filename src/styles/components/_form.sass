@@ -57,10 +57,10 @@
       background-position: 50% 0
       background-repeat: no-repeat
 
-      @include tablet-down
-        background-size: 50px
-      @include tablet-up
-        background-size: 100px
+      //@include tablet-down
+      //  background-size: 50px
+      //@include tablet-up
+      background-size: 1em
 
   &__description
     text-align: center
@@ -145,12 +145,15 @@
     border: none
     text-transform: uppercase
 
-    @include laptop-down
+    @include tablet-down
       width: 100%
       height: 60px
+    @include tablet-laptop
+      width: 100%
+    @include tablet-up
+      height: 90px
     @include laptop-up
       width: 240px
-      height: 90px
 
   &__acceptance
     position: absolute

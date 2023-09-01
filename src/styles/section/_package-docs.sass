@@ -52,13 +52,14 @@
   &__item
     position: relative
     max-width: 475px
-    padding-top: 6px
     line-height: 1.2em
 
     @include tablet-down
+      padding-top: 4px
       font-size: 12px
       padding-left: 35px
     @include tablet-up
+
       padding-left: 45px
       font-size: 20px
 
@@ -74,14 +75,14 @@
       background-repeat: no-repeat
       background-position: 50% 0
 
-      @include tablet-down
-        background-size: 65px
-      @include tablet-up
-        background-size: 100px
+      //@include tablet-down
+      //  background-size: 65px
+      //@include tablet-up
+      background-size: 1.5em
 
     &:not(:last-child)
       @include tablet-down
-        margin-bottom: 20px
+        margin-bottom: 23px
       @include tablet-up
         margin-bottom: 32px
 
