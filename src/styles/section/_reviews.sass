@@ -1,0 +1,98 @@
+@import "../helpers/vars"
+@import "../helpers/media"
+@import "../helpers/mixins"
+.reviews
+  &__container
+    @include tablet-down
+
+    @include tablet-up
+      display: grid
+      grid-template-columns: repeat(2, 1fr)
+      gap: 40px
+      margin-top: 60px
+
+  &__card
+    position: relative
+    padding:  110px 60px 45px 215px
+    border-radius: 10px
+    box-shadow: $boxShadowSecondary
+    width: auto
+    height: auto
+
+    @include mobile-down
+      padding: 150px 25px 20px
+      text-align: center
+    @include tablet-laptop
+      padding: 150px 35px 35px 35px
+      text-align: center
+
+    &-avatar
+      position: absolute
+      top: 60px
+      left: 60px
+      background-position: center
+      background-size: cover
+      border-radius: 50%
+      overflow: hidden
+
+      @include mobile-down
+        top: 20px
+        left: 50%
+        transform: translateX(-50%)
+      @include tablet-laptop
+        top: 20px
+        left: 50%
+        transform: translateX(-50%)
+
+      @include tablet-down
+        width: 100px
+        height: 100px
+      @include tablet-up
+        width: 125px
+        height: 125px
+
+    &:nth-child(1) .reviews__card-avatar
+      background-image: url('images/review/1.png')
+    &:nth-child(2) .reviews__card-avatar
+      background-image: url('images/review/2.png')
+    &:nth-child(3) .reviews__card-avatar
+      background-image: url('images/review/3.png')
+    &:nth-child(4) .reviews__card-avatar
+      background-image: url('images/review/4.png')
+
+    &-title
+      font-weight: 700
+
+      @include tablet-down
+        font-size: 20px
+        margin-bottom: 6px
+      @include tablet-up
+        font-size: $fontSizeLarge
+        margin-bottom: .5em
+
+
+    &-descr
+      @include tablet-down
+        font-size: 14px
+        margin-bottom: 20px
+      @include tablet-up
+        font-size: $fontSizeSmall
+        margin-bottom: 37px
+
+    &-description
+      text-align: justify
+
+      @include tablet-down
+        font-size: 14px
+        line-height: 1.2em
+      @include tablet-up
+        font-size: $fontSizeSmall
+        line-height: 1.3em
+
+      &:not(:last-child)
+        @include tablet-down
+          margin-bottom: 1em
+        @include tablet-up
+          margin-bottom: 1.5em
+
+

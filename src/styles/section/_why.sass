@@ -1,0 +1,131 @@
+@import "../helpers/vars"
+@import "../helpers/media"
+@import "../helpers/mixins"
+
+.why
+  &__swiper
+    @include tablet-down
+    @include tablet-up
+      overflow: visible
+
+  &__container
+    margin-inline: auto
+    counter-reset: why
+
+    @include tablet-down
+
+    @include tablet-up
+      display: flex
+      flex-direction: column
+    @include laptop-up
+      max-width: 1390px
+      margin-top: 85px
+      margin-bottom: 90px
+
+  &__card
+    position: relative
+    min-height: 350px
+    border-radius: 10px
+    box-shadow: $boxShadowSecondary
+    display: flex
+    align-items: center
+    overflow: hidden
+
+    @include tablet-down
+      min-width: 100%
+    @include tablet-up
+      &:not(:last-child)
+        margin-bottom: 30px
+
+    &-image
+      position: absolute
+      top: 0
+      left: 0
+
+      background-size: cover
+
+      @include laptop-down
+        height: 0
+        padding-top: calc(187 / 280 * 100%)
+        width: 100%
+      @include laptop-up
+        height: 100%
+        width: 520px
+
+      &::before
+        counter-increment: why
+        content: counter(why, decimal-leading-zero)
+        position: absolute
+
+        color: #FFF
+        text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.30), -1px 2px 6px rgba(0, 0, 0, 0.29), -5px 10px 11px rgba(0, 0, 0, 0.26), -11px 22px 15px rgba(0, 0, 0, 0.15), -20px 40px 18px rgba(0, 0, 0, 0.04), -32px 62px 19px rgba(0, 0, 0, 0.01)
+        font-weight: 700
+
+        @include tablet-down
+          bottom: 3px
+          left: 50%
+          transform: translateX(-50%)
+          font-size: 40px
+        @include tablet-up
+          top: 70px
+          right: -10px
+          font-size: 90px
+
+    &-text
+
+      height: 100%
+
+      @include tablet-up
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: stretch
+      @include laptop-down
+        padding: calc(190 / 280 * 100% + 20px) 20px 20px
+      @include laptop-up
+        padding: 15px 55px 15px 570px
+
+    &-title
+      font-weight: 700
+      line-height: 1.2em
+
+      @include tablet-down
+        margin-bottom: 13px
+        font-size: $fontSizeMedium
+      @include tablet-up
+        margin-bottom: 25px
+        font-size: $fontSizeLarge
+
+    &-description
+      text-align: justify /* Выравнивание по ширине */
+      text-align-last: left /* Выравнивание последней строки */
+      line-height: 1.2em
+
+      @include tablet-down
+        font-size: 13px
+      @include tablet-up
+        font-size: $fontSizeMedium
+
+      &:not(:last-child)
+        margin-bottom: 1.5em
+
+    &-btn
+      padding: 30px
+      @include primaryButton
+      border: none
+      border-radius: 10px
+      margin-top: auto
+      text-transform: uppercase
+      letter-spacing: 1px
+      
+    &:nth-child(1) .why__card-image
+      background-image: url('images/why/1.jpeg')
+    &:nth-child(2) .why__card-image
+      background-image: url('images/why/2.jpeg')
+    &:nth-child(3) .why__card-image
+      background-image: url('images/why/3.jpeg')
+    &:nth-child(4) .why__card-image
+      background-image: url('images/why/4.png')
+    &:nth-child(5) .why__card-image
+      background-image: url('images/why/5.png')
+

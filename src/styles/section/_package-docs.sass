@@ -1,0 +1,117 @@
+@import "../helpers/vars"
+@import "../helpers/media"
+@import "../helpers/mixins"
+
+.package-docs.section
+  background: center / cover url('images/package-docs-bg.png')
+  //margin-bottom: 265px
+
+  @include tablet-down
+    padding-bottom: 200px
+  @include tablet-up
+    overflow-x: hidden
+
+  .container
+    @include tablet-down
+    @include tablet-up
+      max-width: 1160px
+      position: relative
+      margin: 0 auto
+
+  & + .container .form-container
+
+
+    @include tablet-down
+      margin-top: -240px
+    @include tablet-up
+      margin-top: -85px
+
+.package-docs
+  &__container
+    @include laptop-up
+      width: 70%
+
+    .section__title
+      @include tablet-down
+        margin-bottom: 20px
+        text-align: center
+      @include tablet-up
+        margin-bottom: 55px
+        text-align: start
+
+  &__list
+
+    @include tablet-down
+      margin-bottom: 25px
+    @include tablet-up
+      margin-bottom: 75px
+
+    @include tablet-laptop
+      max-width: 50%
+
+  &__item
+    position: relative
+    max-width: 475px
+    padding-top: 6px
+    line-height: 1.2em
+
+    @include tablet-down
+      font-size: 12px
+      padding-left: 35px
+    @include tablet-up
+      padding-left: 45px
+      font-size: 20px
+
+
+    &:before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 30px
+      height: 30px
+      background-image: url("images/sprite.svg#quick-calc")
+      background-repeat: no-repeat
+      background-position: 50% 0
+
+      @include tablet-down
+        background-size: 65px
+      @include tablet-up
+        background-size: 100px
+
+    &:not(:last-child)
+      @include tablet-down
+        margin-bottom: 20px
+      @include tablet-up
+        margin-bottom: 32px
+
+  &__img
+    background-image: url('images/docs2.png')
+    background-repeat: no-repeat
+    background-size: contain
+
+
+    @include tablet-down
+      width: 100%
+      height: 0
+      padding-top: 100%
+
+    @include tablet-laptop
+      position: absolute
+      bottom: 0
+      right: 0
+      width: 50%
+      height: 50%
+      transform: translateX(20%) scale(1.3)
+
+
+
+
+    @include laptop-up
+      position: absolute
+      top: 130px
+      right: -110px
+      width: 50%
+      height: 500px
+      transform: scale(1.45)
+      background-position: 100% 50%

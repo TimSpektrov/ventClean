@@ -1,0 +1,50 @@
+@import "../helpers/vars"
+@import "../helpers/media"
+@import "../helpers/mixins"
+
+.section__title.clients
+  font-size: $fontSizeXMedium
+  font-weight: 700
+  margin: 0
+
+.clients
+  padding-top: 30px
+
+  &__swiper
+    @include tablet-down
+      padding-top: 30px
+        //-webkit-mask-image: linear-gradient(to left, #fff 0%, #fff 10%, #000 20%, #000 80%, #fff 90%, #fff 100%)
+        //mask-image: linear-gradient(to left, #fff 0%, #fff 10%, #000 20%, #000 80%, #fff 90%, #fff 100%)
+    @include tablet-up
+      margin: 0
+      width: 80%
+
+  .swiper-slide
+    text-align: center
+
+  .container
+    @include tablet-down
+      display: block
+      padding-right: 10px
+      padding-left: 10px
+
+    @include tablet-up
+      display: flex
+      align-items: center
+      justify-content: space-between
+      gap: 60px
+
+  &__container
+    @include tablet-up
+      display: grid
+      grid-template-columns: repeat(10, 1fr)
+      //gap: 30px
+  &__img
+    object-fit: contain
+
+    @include tablet-down
+      max-width: 65px
+      min-height: 50px
+    @include tablet-up
+      max-width: 130px
+      min-height: 100px

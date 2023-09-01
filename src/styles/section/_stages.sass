@@ -1,0 +1,132 @@
+@import "../helpers/vars"
+@import "../helpers/media"
+@import "../helpers/mixins"
+
+.stages
+  &.section
+    background-image: url('images/stages-bg.png')
+    background-size: cover
+
+  &__container
+    display: flex
+    justify-content: center
+    align-items: start
+    gap: 20px
+    margin: 0 auto
+    padding-top: 60px
+    counter-reset: stages
+    overflow-x: hidden
+
+    @include laptop-down
+      padding-bottom: 40px
+    @include laptop-up
+      max-width: 1160px
+
+  &__card
+    position: relative
+    padding: 285px 20px 30px
+    text-align: center
+    background-color: #fff
+    overflow: hidden
+    border-radius: 10px
+    color: $colorBlack
+
+    @include mobile-down
+      flex: 0 0 100%
+
+    @include mobile-laptop
+      flex: 0 0 46%
+
+    @include tablet-laptop
+      flex: 0 0 30%
+
+    @include laptop-up
+      flex: 0 0 calc((100% - 60px) / 4)
+      flex-wrap: wrap
+
+    &:nth-child(1) p
+      margin-bottom: 20px
+
+    &:before
+      position: absolute
+      content: ''
+      top: 0
+      left: 50%
+      width: 375px
+      height: 375px
+      border-radius: 50%
+      background-color: $colorPrimary
+      transform: translate(-50%, -50%)
+      z-index: 0
+
+    &:after
+      counter-increment: stages
+      content: counter(stages, decimal-leading-zero)
+      position: absolute
+      top: 40px
+      left: 50%
+      transform: translateX(-50%)
+      color: $colorWhite
+      font-size: 40px
+
+    &-img
+      position: absolute
+      top: 70px
+      left: 50%
+      transform: translateX(-50%)
+      width: 80%
+      height: 200px
+      background-position: center
+      background-repeat: no-repeat
+      background-size: 270px
+
+    &:nth-child(1) .stages__card-img
+      background-image: url('images/stages/1.png')
+    &:nth-child(2) .stages__card-img
+      background-image: url('images/stages/2.png')
+    &:nth-child(3) .stages__card-img
+      background-image: url('images/stages/3.png')
+    &:nth-child(4) .stages__card-img
+      background-image: url('images/stages/4.png')
+
+  &__call
+    text-align: center
+    @include tablet-down
+      padding-top: 35px
+      padding-bottom: 35px
+    @include tablet-up
+      padding-top: 90px
+
+    &-link
+      display: inline-block
+
+      @include tablet-down
+        font-size: 28px
+        margin-bottom: 10px
+      @include tablet-up
+        font-size: 40px
+        margin-bottom: 25px
+
+    &-description
+      position: relative
+      width: fit-content
+      margin-inline: auto
+
+      @include tablet-down
+        padding-left: 10px
+        font-size: 11px
+      @include tablet-up
+        padding-left: 20px
+        font-size: 16px
+
+
+      &:before
+        content: ''
+        position: absolute
+        left: 0
+        top: 40%
+        transform: translateY(-50%)
+        width: .5em
+        height: .5em
+        background-color: $colorPrimary
+        border-radius: 50%
