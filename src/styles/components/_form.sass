@@ -107,16 +107,24 @@
     border: 1px solid #A7ADEA
     background-color: transparent
     color: $colorWhite
+    background-size: 25px
+    background-repeat: no-repeat
+    background-position: 10px 50%
 
     @include tablet-down
       height: 60px
     @include tablet-up
       height: 90px
 
+    &-phone
+      background-image: url('images/sprite.svg#hero-phone')
+    &-name
+      background-image: url('images/sprite.svg#hero-people')
+
     &::placeholder
-      color: inherit
+      color: $colorWhite
       font-size: $fontSizeMedium
-      border-color: $colorWhite
+      //border-color: $colorWhite
 
     &:focus
       border-color: currentColor
