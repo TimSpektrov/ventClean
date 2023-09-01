@@ -10,6 +10,10 @@
     padding-right: 20px
     overflow-y: visible
 
+    &.clients__swiper
+      padding-left: 30px
+      padding-right: 30px
+
 
     &-pagination
       position: static
@@ -31,11 +35,6 @@
       width: 100%
       height: auto
       z-index: 2
-
-    .clients__swiper-navigation
-      left: -2%
-      width: 104%
-
 
     &-button
       &-next,
@@ -65,7 +64,6 @@
   .container
     &.work-with,
     &.why,
-    &.client,
     .reviews &
       padding-left: 0
       padding-right: 0
@@ -74,7 +72,9 @@
     .swiper-navigation
       top: 50%
 
-
+  .clients .container
+    padding-right: 0
+    padding-left: 0
 
 
 @include tablet-up
