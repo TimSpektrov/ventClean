@@ -155,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('resize', () => {
         mobileSliderEvent();
-        console.log('resize')
     });
 
 
