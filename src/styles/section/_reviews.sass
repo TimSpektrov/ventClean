@@ -2,6 +2,11 @@
 @import "../helpers/media"
 @import "../helpers/mixins"
 .reviews
+
+  &__swiper
+    @include tablet-up
+      overflow: visible
+
   &__container
     @include tablet-down
 
@@ -18,6 +23,7 @@
     box-shadow: $boxShadowSecondary
     width: auto
     height: auto
+    box-sizing: border-box
 
     @include mobile-down
       padding: 150px 25px 20px
