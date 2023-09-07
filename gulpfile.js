@@ -7,6 +7,7 @@ const cleanCSS = require('gulp-clean-css')
 const sass = require('gulp-sass')(require('sass'));
 const svgSprite = require('gulp-svg-sprite')
 const image = require('gulp-image')
+const webp = require('gulp-webp');
 const babel = require('gulp-babel')
 const notify = require("gulp-notify");
 const uglify = require('gulp-uglify-es').default;
@@ -30,10 +31,10 @@ const resources = () => {
 }
 
 const styles = () => {
-    return src('src/styles/styles.sass')
+    return src(['src/style.css', 'src/assets/css/**/*.css'])
         .pipe(gulpIf(!prod,sourcemaps.init()))
         .pipe(sass())
-        .pipe(concat('main.css'))
+        .pipe(concat('style.css'))
         .pipe(gulpIf(prod,autoprefixer({
             cascade: false,
         })))
@@ -58,7 +59,7 @@ const htmlMinify = () => {
 }
 
 const svgSprites = () => {
-    return src ('src/images/svg/**/*.svg')
+    return src ('src/assets/img/svg/**/*.svg')
         .pipe(svgSprite({
             mode: {
                 stack: {
@@ -106,6 +107,16 @@ const images = () => {
         .pipe(dest('dist/images'))
 }
 
+const webpImages = () => {
+    return src([
+        'src/images/**/*.jpg',
+        'src/images/**/*.jpeg',
+        'src/images/**/*.png',
+    ])
+        .pipe(webp())
+        .pipe(dest('dist/images'))
+}
+
 watch('src/**/*.html', htmlMinify)
 watch('src/**/*.sass', styles)
 watch('src/images/svg/**/*.svg', svgSprites)
@@ -116,9 +127,10 @@ watch('src/source/**', resources)
 exports.styles = styles
 exports.scripts = scripts
 exports.htmlMinify = htmlMinify
+exports.svgsprites = svgSprites
 
-exports.dev = series(clean, resources, htmlMinify, scripts, styles, images, svgSprites, watchFiles)
-exports.prod = series(isProd, clean, resources, htmlMinify, scripts, styles, images, svgSprites)
-
-exports.default = series(clean, resources, htmlMinify, scripts, styles, images, svgSprites, watchFiles)
+exports.dev = series(clean, resources, htmlMinify, scripts, styles, images, webpImages, svgSprites, watchFiles)
+exports.prod = series(isProd, clean, resources, htmlMinify, scripts, styles, images, webpImages, svgSprites)
+//
+// exports.default = series(clean, resources, htmlMinify, scripts, styles, images, svgSprites, watchFiles)
 

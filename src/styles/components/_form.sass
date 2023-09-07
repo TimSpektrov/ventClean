@@ -18,7 +18,11 @@
     border-radius: 15px
     border: 4px solid $colorWhite
     padding: 25px 10px
-  @include tablet-up
+  @include tablet-laptop
+    border-radius: 30px
+    border: 8px solid $colorWhite
+    padding: 20px 35px
+  @include laptop-up
     border-radius: 30px
     border: 8px solid $colorWhite
     padding: 60px
@@ -41,7 +45,9 @@
 
     @include tablet-down
       font-size: 20px
-    @include tablet-up
+    @include tablet-laptop
+      font-size: 24px
+    @include laptop-up
       font-size: $fontSizeXLarge
 
     &:after
@@ -70,7 +76,10 @@
       margin-inline: 40px
       line-height: 1.2em
 
-    @include tablet-up
+    @include tablet-laptop
+      font-size: $fontSizeMedium
+      margin-bottom: 24px
+    @include laptop-up
       font-size: $fontSizeMedium
       margin-bottom: 44px
 
@@ -86,12 +95,10 @@
     @include tablet-down
       padding-left: 12px
       padding-right: 12px
-
-    @include laptop-down
       flex-direction: column
 
   &__label
-
+    position: relative
 
     @include laptop-down
       width: 255px
@@ -110,10 +117,18 @@
     background-size: 25px
     background-repeat: no-repeat
     background-position: 10px 50%
+    transition: border-color .2s linear
+    &:hover
+      border-color: #FCD98A
+    &:focus
+      border-color: #fff
+    &:active
+      border-color: #FCD98A
 
-    @include tablet-down
+
+    @include laptop-down
       height: 60px
-    @include tablet-up
+    @include laptop-up
       height: 90px
 
     &-phone
@@ -150,18 +165,26 @@
     @include primaryButton
 
     border-radius: 6px
-    border: none
+    border-color: $colorPrimary
     text-transform: uppercase
+
+    &:hover
+      border-color: #FCD98A
+    &:focus
+      border-color: #fff
+    &:active
+      border-color: #FCD98A
 
     @include tablet-down
       width: 100%
       height: 60px
     @include tablet-laptop
       width: 100%
-    @include tablet-up
-      height: 90px
+    @include laptop-down
+      height: 60px
     @include laptop-up
       width: 240px
+      height: 90px
 
   &__acceptance
     position: absolute
@@ -177,4 +200,29 @@
     @include tablet-up
       text-align: right
       font-size: 11px
+
+  &__error-message
+    position: absolute
+    top: -1.2em
+    left: 50%
+    width: 150px
+    transform: translateX(-50%)
+    border-radius: 1em
+    color: red
+    font-weight: 300
+    font-size: 13px
+    box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.2)
+    background-color: rgba(255, 255, 255, 0.2)
+    line-height: 1em
+    text-align: center
+
+    input.form-container__input + &
+      opacity: 0
+
+    input.form-container__input.error + &
+      opacity: 1
+
+
+
+
 

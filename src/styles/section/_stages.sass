@@ -4,15 +4,16 @@
 
 .stages
   &.section
-    background-image: url('images/stages-bg.png')
+    background-image: url('images/stages-bg.jpg')
     background-size: cover
+    background-position: center
   .container
     padding-left: 0
     padding-right: 0
 
   &__swiper
     padding-top: 60px
-    counter-reset: stages
+    //counter-reset: stages
     @include mobile-down
       padding-right: 15px
       padding-left: 15px
@@ -60,14 +61,30 @@
       z-index: 0
 
     &:after
-      counter-increment: stages
-      content: counter(stages, decimal-leading-zero)
+      //counter-increment: stages
+      //content: counter(stages, decimal-leading-zero)
       position: absolute
       top: 40px
       left: 50%
       transform: translateX(-50%)
       color: $colorWhite
       font-size: 40px
+
+    &_1
+      &:after
+        content: '01'
+
+    &_2
+      &:after
+        content: '02'
+
+    &_3
+      &:after
+        content: '03'
+
+    &_4
+      &:after
+        content: '04'
 
     &-img
       position: absolute
@@ -129,7 +146,6 @@
         padding-left: 20px
         font-size: 16px
 
-
       &:before
         content: ''
         position: absolute
@@ -138,5 +154,5 @@
         transform: translateY(-50%)
         width: .5em
         height: .5em
-        background-color: $colorPrimary
+        background-color: #3EE03B
         border-radius: 50%

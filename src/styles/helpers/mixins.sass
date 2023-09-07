@@ -1,10 +1,20 @@
 @import 'vars'
 @mixin primaryButton
-  background: $colorPrimaryGradient
+  background-image: $colorPrimaryGradient
   font-weight: 800
   color: $colorSecondary
   box-shadow: $boxShadowPrimary
   letter-spacing: 2px
+  border-color: #000
+  transition: background-image .2s linear, border-color .2s linear
+
+  &:focus
+    background-image: $colorPrimaryGradientHover
+    border-color: #fff
+
+  &:hover,
+  &:active
+    background-image: $colorPrimaryGradientHover
 
   @include tablet-down
     font-size: 8px

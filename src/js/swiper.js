@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 whySwiper = new Swiper('.why__swiper', {
                     loop: true,
                     spaceBetween: 30,
-                    centeredSlides: true,
+
                     pagination: {
                         el: '.why__swiper-pagination',
                         clickable: true,
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             breakpoints: {
                 320: {
-                    loop: true,
+                    // loop: true,
                     slidesPerView: 1,
                     spaceBetween: 30,
                 },

@@ -2,18 +2,24 @@
 @import "../helpers/media"
 .section.hero
   padding-bottom: 0
-  background-image: url('images/hero-bg.jpg')
+  background-color: #000
   background-size: cover
   background-repeat: no-repeat
+  background-position: center
   color: $colorWhite
+  background-image: url('images/hero-bg.jpg')
 
   @include tablet-down
     padding-top: 175px
     margin-bottom: 210px
-  @include tablet-up
-    padding-top: 170px
+  @include tablet-laptop
+    padding-top: 110px
     margin-bottom: 80px
 
+
+  @include laptop-up
+    padding-top: 170px
+    margin-bottom: 80px
 
   .container
     display: flex
@@ -24,7 +30,10 @@
   .section__title
     @include tablet-down
       margin-bottom: 20px
-    @include tablet-up
+    @include tablet-laptop
+      margin-bottom: 10px
+      font-size: 35px
+    @include laptop-up
       margin-bottom: 60px
 
   &__text-container
@@ -34,7 +43,9 @@
   &__confidence
     @include tablet-down
       margin-bottom: 30px
-    @include tablet-up
+    @include tablet-laptop
+      margin-bottom: 20px
+    @include laptop-up
       margin-bottom: 60px
 
 

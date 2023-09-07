@@ -1,0 +1,35 @@
+.popup-bg
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100vh
+  background: rgba(0,0,0,0.2)
+  opacity: 0
+  pointer-events: none
+  transition: 1.5s all
+  z-index: 1
+
+.popup-bg.active
+  opacity: 1
+  pointer-events: all
+
+  .popup
+    transform: translate(-50%, -50%) scale(1)
+    transition: 0.5s all
+
+.popup
+  position: absolute
+  top: 50%
+  left: 50%
+  width: 250px
+  transform: translate(-50%, -50%) scale(0)
+  padding: 25px
+  border-radius: 20px
+  background: #fff
+  text-align: center
+  transition: transform 0.5s all
+  z-index: 20
+
+.popup__text
+  line-height: 1.3em

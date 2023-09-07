@@ -10,7 +10,7 @@
 
   &__container
     margin-inline: auto
-    counter-reset: why
+    //counter-reset: why
 
     @include tablet-down
 
@@ -53,8 +53,8 @@
         width: 520px
 
       &::before
-        counter-increment: why
-        content: counter(why, decimal-leading-zero)
+        //counter-increment: why
+        //content: counter(why, decimal-leading-zero)
         position: absolute
 
         color: #FFF
@@ -118,14 +118,24 @@
       text-transform: uppercase
       letter-spacing: 1px
       
-    &:nth-child(1) .why__card-image
-      background-image: url('images/why/1.jpeg')
-    &:nth-child(2) .why__card-image
-      background-image: url('images/why/2.jpeg')
-    &:nth-child(3) .why__card-image
-      background-image: url('images/why/3.jpeg')
-    &:nth-child(4) .why__card-image
-      background-image: url('images/why/4.png')
-    &:nth-child(5) .why__card-image
-      background-image: url('images/why/5.png')
+    .why__card-image_1
+      background-image: url('images/why/1.jpg')
+      &:before
+        content: '01'
+    .why__card-image_2
+      background-image: url('images/why/2.jpg')
+      &:before
+        content: '02'
+    .why__card-image_3
+      background-image: url('images/why/3.jpg')
+      &:before
+        content: '03'
+    .why__card-image_4
+      background-image: url('images/why/4.jpg')
+      &:before
+        content: '04'
+    .why__card-image_5
+      background-image: url('images/why/5.jpg')
+      &:before
+        content: '05'
 

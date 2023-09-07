@@ -7,14 +7,20 @@
     </p>
     <form class="form-container__form" action="#">
         <label class="form-container__label">
-            <input class="form-container__input form-container__input-name" type="text" name="name" placeholder="Введите Ваше имя">
+            <input
+                    class="form-container__input form-container__input-name touch"
+                    type="text" name="name"
+                    placeholder="Введите Ваше имя"
+            >
+            <span class="form-container__error-message">Введите имя</span>
         </label>
         <label class="form-container__label">
             <input
-                    class="form-container__input form-container__input-phone"
+                    class="form-container__input form-container__input-phone touch"
                     type="text" name="phone"
                     placeholder="Контактный телефон"
             >
+            <span class="form-container__error-message">Некорректный номер</span>
         </label>
         <button class="form-container__submit" type="submit">Отправить заявку</button>
         <p class="form-container__acceptance">Принимаю условия передачи информации</p>
