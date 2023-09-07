@@ -1,1 +1,3 @@
-https://timspektrov.github.io/ventClean/dist
+[Посмотреть сайт]​(вентклин.рф)
+
+Используемый стек: gulp, sass, js
